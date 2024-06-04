@@ -54,7 +54,7 @@ async function run() {
         const news_types_collection = newsDB.collection("news_types_collection");
         const userCollection = userDB.collection("userCollection");
 
-
+        //news atticles routes
         app.post('/news_articles', verifyToken, async (req, res) => {
             const newsData = req.body;
             const result = await news_articles_collection.insertOne(newsData)
