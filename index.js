@@ -42,9 +42,7 @@ const client = new MongoClient(uri, {
         strict: true,
         deprecationErrors: true,
     },
-    // useNewUriParser:true,
-    // useUnifiedTopology:true,
-    // maxPoolSize:10,
+  
 });
 
 async function run() {
@@ -57,14 +55,6 @@ async function run() {
         const userCollection = userDB.collection("userCollection");
 
 
-
-        // client.connect((err)=>{
-        //     if(err){
-        //         console.error(err);
-        //         return;
-        //     }
-        // })
-        //news Article routes
         app.post('/news_articles', verifyToken, async (req, res) => {
             const newsData = req.body;
             const result = await news_articles_collection.insertOne(newsData)
