@@ -41,7 +41,10 @@ const client = new MongoClient(uri, {
         version: ServerApiVersion.v1,
         strict: true,
         deprecationErrors: true,
-    }
+    },
+    useNewUriParser:true,
+    useUnifiedTopology:true,
+    maxPoolSize:10,
 });
 
 async function run() {
@@ -53,6 +56,14 @@ async function run() {
         const news_types_collection = newsDB.collection("news_types_collection");
         const userCollection = userDB.collection("userCollection");
 
+
+
+        client.connect((err)=>{
+            if(err){
+                console.error(err);
+                return;
+            }
+        })
         //news Article routes
         app.post('/news_articles', verifyToken, async (req, res) => {
             const newsData = req.body;
