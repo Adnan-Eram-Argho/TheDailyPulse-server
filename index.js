@@ -13,7 +13,7 @@ app.use(express.json())
 
 
 
-const uri = process.env.DATABASE_URL;
+const uri = "mongodb+srv://adnaneramargho:lfw0AQo6LhPENsPw@thedailypulse.jvo5yjq.mongodb.net/?retryWrites=true&w=majority&appName=TheDailyPulse";
 
 
 function createToken(user){
