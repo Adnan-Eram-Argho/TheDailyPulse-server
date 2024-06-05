@@ -47,8 +47,8 @@ const client = new MongoClient(uri, {
 
 async function run() {
     try {
-        // await
-        await client.connect();
+        
+        client.connect();
         const newsDB = client.db("newsDB");
         const userDB = client.db("userDB");
         const news_articles_collection = newsDB.collection("news_articles_collection");
